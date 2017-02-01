@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:component-scan base-package="by.bytechs.restService"/>
+    <context:property-placeholder properties-ref="myProperties"/>
+    <bean id="myProperties"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                 <!--<prop key="ipServer">10.177.201.67</prop> &lt;!&ndash; все команды &ndash;&gt;-->
+
+                <!--нижние айпишники для разработки; верхние, не закомениторванные - для прода-->
+                <prop key="ipServer">172.31.251.165</prop> <!-- все команды -->
+            </props>
+        </property>
+    </bean>
+    <bean name="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+    <bean name="urlGetAllStatCriticalMessageActual" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllStatCriticalMessageActual/"/>
+    </bean>
+    <bean name="urlGetAllErrorDeviceInterval" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllErrorDeviceInterval/?time={time}"/>
+    </bean>
+    <bean name="urlGetAllTerminalForFineDtoByTime" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllTerminalForFineDtoByTime/?time={time}"/>
+    </bean>
+    <bean name="urlGetAllTerminalForFineDtoByListTime" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllTerminalForFineDtoByListTime/?time={time}"/>
+    </bean>
+    <bean name="urlGetAllPaymentPerDay" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllPaymentPerDay/?dateTime={dateTime}"/>
+    </bean>
+    <bean name="urlGetAllPaymentInAnHour" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllPaymentInAnHour/?dateTime={dateTime}"/>
+    </bean>
+    <bean name="urlGetAllPaymentInAnFiveMin" class="java.lang.String">
+        <constructor-arg value="http://${ipServer}:6666/termWeb/screenMonitoring/getAllPaymentInAnFiveMin/?dateTime={dateTime}"/>
+    </bean>
+</beans>

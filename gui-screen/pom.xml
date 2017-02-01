@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>screen-monitoring</artifactId>
+        <groupId>by.bytechs</groupId>
+        <version>1.10</version>
+    </parent>
+
+    <groupId>by.bytechs</groupId>
+    <artifactId>gui-screen</artifactId>
+    <version>${myproject.version}</version>
+    <packaging>jar</packaging>
+
+    <name>gui-screen</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mainClass>by.bytechs.view.main.MainApp</mainClass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>by.bytechs</groupId>
+            <artifactId>rest-screen</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>by.bytechs</groupId>
+            <artifactId>service-screen</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
